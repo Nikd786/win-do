@@ -250,10 +250,10 @@ ECHO Username  : Administrator
 ECHO.
 
 :keep_open
-ECHO [LOG] This window will stay open for debugging.
-ECHO Press any key to close and delete this script...
-pause >nul
-del /f /q "%~f0"
+ECHO [LOG] Setup selesai. Menutup jendela dalam 5 detik...
+timeout /t 5 /nobreak >nul
+REM Menghapus file script ini sendiri sebelum keluar
+start /b "" cmd /c del "%~f0" & exit
 exit
 EOFBATCH
 
@@ -298,15 +298,49 @@ mount.ntfs-3g -o remove_hiberfile,rw "$TARGET" /mnt/windows || mount.ntfs-3g -o 
 
 # --- 8. INJECT FILES ---
 log_step "STEP 8: Injecting Setup Files"
+
+# Tentukan Path Folder
 PATH_ALL_USERS="/mnt/windows/ProgramData/Microsoft/Windows/Start Menu/Programs/Startup"
 PATH_ADMIN="/mnt/windows/Users/Administrator/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
-mkdir -p "$PATH_ALL_USERS" "$PATH_ADMIN"
+PATH_DESKTOP="/mnt/windows/Users/Administrator/Desktop"
 
+# Buat folder jika belum ada
+mkdir -p "$PATH_ALL_USERS" "$PATH_ADMIN" "$PATH_DESKTOP"
+
+# 1. Buat file bat Ganti Password secara otomatis
+cat > /tmp/GantiPass.bat << 'EOF'
+@echo off
+net session >nul 2>&1
+if %errorLevel% neq 0 (
+    echo [!] ERROR: Klik kanan lalu 'Run as Administrator'
+    pause
+    exit
+)
+echo ========================================
+echo       GANTI PASSWORD ADMINISTRATOR
+echo ========================================
+set /p "np=Masukkan Password Baru: "
+net user Administrator %np%
+echo.
+if %errorlevel% equ 0 (
+    echo [OK] Password berhasil diganti!
+    timeout /t 3
+) else (
+    echo [Gagal] Pastikan password memenuhi kriteria.
+    pause
+)
+exit
+EOF
+
+# 2. Copy file-file ke dalam sistem Windows
 cp -v /tmp/chrome.msi /mnt/windows/chrome.msi
 cp -f /tmp/win_setup.bat "$PATH_ALL_USERS/win_setup.bat"
 cp -f /tmp/win_setup.bat "$PATH_ADMIN/win_setup.bat"
 
-log_success "Files injected"
+# 3. Masukkan file Ganti Password ke Desktop agar mudah ditemukan user
+cp -f /tmp/GantiPass.bat "$PATH_DESKTOP/GantiPassword.bat"
+
+log_success "Files injected (Setup script & Password Changer on Desktop)"
 
 # --- 9. FINISH ---
 log_step "STEP 9: Cleaning Up"
