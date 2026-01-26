@@ -43,7 +43,7 @@ read -p "Select [1]: " PILIHOS
 
 case "$PILIHOS" in
   1|"") PILIHOS="https://pub-24c03f7a3eff4fa6936c33e2474d6905.r2.dev/windows2019DO.gz";;
-  2) PILIHOS="http://24.199.108.52/windows2019.gz";;
+  2) PILIHOS="https://download1531.mediafire.com/7s5hm4ft5pgghcgdywbqMd3OA6I2kY-Lk_VpClDf7uYC1I4QOvz_xTGVhMeGkdxyT8FJxvzoiqGlWmMUWsKv-MDSw36CiDTF-i-HCt4hBlG_1QdpZYMSAiowYc8LZw_4V0mtW6QF--iBBxAMt8sluAUgR_HUf3sZ_PNNS-V5FPH1n4c/5467b14n86t47b0/windows2019.gz";;
   3) PILIHOS="https://pub-4e34d7f04a65410db003c8e1ef00b82a.r2.dev/windows2016.gz";;
   4) PILIHOS="https://download853.mediafire.com/tuef8sbhwspgl_zR6OK3WVrfalwkExPoAVtac6ergZ-7qPAqhpTuMW1HZgilIYT8aPHGCcQT1YcK0twtGdysR-Fb8uM286e4Wh-DBNfnBRHEiP6sjpXGgzCrf554RkATdx9zsFwloJNrlXcG_j2uZJWC-_FzR6Dq2P5gtB2dg7LNZiUD/i2d5cf30xo4ikzz/windows2012.gz";;
   5) PILIHOS="https://master.dl.sourceforge.net/project/manyod/wedus10lite.gz?viasf=1";;
