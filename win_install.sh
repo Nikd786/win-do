@@ -13,7 +13,7 @@ function log_step() { echo -e "\n\e[33m>>> $1 \e[0m"; }
 
 clear
 echo "===================================================="
-echo "   WINDOWS INSTALLER - FINAL LOGGING VERSION        "
+echo "   WINDOWS INSTALLER - FINAL LOGGING VERSION        "
 echo "===================================================="
 
 # --- 1. INSTALL DEPENDENCIES ---
@@ -29,30 +29,30 @@ wget -q --show-progress --progress=bar:force -O /tmp/chrome.msi "https://dl.goog
 
 # --- 3. OS SELECTION ---
 log_step "STEP 3: Select Operating System"
-echo "  1) Windows 2019 (Cloudflare R2 Recommended)"
-echo "  2) Windows 2019 (Mediafire [Faster])"
-echo "  3) Windows 2016 (Cloudflare R2)"
-echo "  4) Windows 2012 (Mediafire)"
-echo "  5) Windows 10 Super Lite SF"
-echo "  6) Windows 10 Super Lite MF"
-echo "  7) Windows 10 Super Lite CF"
-echo "  8) Windows 11 Normal"
-echo "  9) Windows 10 Normal"
-echo "  10) Custom Link"
+echo "  1) Windows 2019 (Cloudflare R2 Recommended)"
+echo "  2) Windows 2019 (Mediafire [Faster])"
+echo "  3) Windows 2016 (Cloudflare R2)"
+echo "  4) Windows 2012 (Mediafire)"
+echo "  5) Windows 10 Super Lite SF"
+echo "  6) Windows 10 Super Lite MF"
+echo "  7) Windows 10 Super Lite CF"
+echo "  8) Windows 11 Normal"
+echo "  9) Windows 10 Normal"
+echo "  10) Custom Link"
 read -p "Select [1]: " PILIHOS
 
 case "$PILIHOS" in
-  1|"") PILIHOS="https://pub-24c03f7a3eff4fa6936c33e2474d6905.r2.dev/windows2019DO.gz";;
-  2) PILIHOS="https://download1531.mediafire.com/7s5hm4ft5pgghcgdywbqMd3OA6I2kY-Lk_VpClDf7uYC1I4QOvz_xTGVhMeGkdxyT8FJxvzoiqGlWmMUWsKv-MDSw36CiDTF-i-HCt4hBlG_1QdpZYMSAiowYc8LZw_4V0mtW6QF--iBBxAMt8sluAUgR_HUf3sZ_PNNS-V5FPH1n4c/5467b14n86t47b0/windows2019.gz";;
-  3) PILIHOS="https://pub-4e34d7f04a65410db003c8e1ef00b82a.r2.dev/windows2016.gz";;
-  4) PILIHOS="https://download853.mediafire.com/tuef8sbhwspgl_zR6OK3WVrfalwkExPoAVtac6ergZ-7qPAqhpTuMW1HZgilIYT8aPHGCcQT1YcK0twtGdysR-Fb8uM286e4Wh-DBNfnBRHEiP6sjpXGgzCrf554RkATdx9zsFwloJNrlXcG_j2uZJWC-_FzR6Dq2P5gtB2dg7LNZiUD/i2d5cf30xo4ikzz/windows2012.gz";;
-  5) PILIHOS="https://master.dl.sourceforge.net/project/manyod/wedus10lite.gz?viasf=1";;
-  6) PILIHOS="https://download1582.mediafire.com/lemxvneeredgyBT5P6YtAU5Dq-mikaH29djd8VnlyMcV1iM_vHJzYCiTc8V3PQkUslqgQSG0ftRJ0X2w3t1D7T4a-616-phGqQ2xKCn8894r0fdV9jKMhVYKH8N1dXMvtsZdK6e4t9F4Hg66wCzpXvuD_jcRu9_-i65_Kbr-HeW8Bw/gcxlheshfpbyigg/wedus10lite.gz";;
-  7) PILIHOS="https://umbel.my.id/wedus10lite.gz";;
-  8) PILIHOS="https://windows-on-cloud.wansaw.com/0:/win11";;
-  9) PILIHOS="https://windows-on-cloud.wansaw.com/0:/win10_en.gz";;
-  10) read -p "Enter Direct Link: " PILIHOS;;
-  *) log_error "Invalid selection"; exit 1;;
+  1|"") PILIHOS="https://pub-24c03f7a3eff4fa6936c33e2474d6905.r2.dev/windows2019DO.gz";;
+  2) PILIHOS="https://download1531.mediafire.com/7s5hm4ft5pgghcgdywbqMd3OA6I2kY-Lk_VpClDf7uYC1I4QOvz_xTGVhMeGkdxyT8FJxvzoiqGlWmMUWsKv-MDSw36CiDTF-i-HCt4hBlG_1QdpZYMSAiowYc8LZw_4V0mtW6QF--iBBxAMt8sluAUgR_HUf3sZ_PNNS-V5FPH1n4c/5467b14n86t47b0/windows2019.gz";;
+  3) PILIHOS="https://pub-4e34d7f04a65410db003c8e1ef00b82a.r2.dev/windows2016.gz";;
+  4) PILIHOS="https://download853.mediafire.com/tuef8sbhwspgl_zR6OK3WVrfalwkExPoAVtac6ergZ-7qPAqhpTuMW1HZgilIYT8aPHGCcQT1YcK0twtGdysR-Fb8uM286e4Wh-DBNfnBRHEiP6sjpXGgzCrf554RkATdx9zsFwloJNrlXcG_j2uZJWC-_FzR6Dq2P5gtB2dg7LNZiUD/i2d5cf30xo4ikzz/windows2012.gz";;
+  5) PILIHOS="https://master.dl.sourceforge.net/project/manyod/wedus10lite.gz?viasf=1";;
+  6) PILIHOS="https://download1582.mediafire.com/lemxvneeredgyBT5P6YtAU5Dq-mikaH29djd8VnlyMcV1iM_vHJzYCiTc8V3PQkUslqgQSG0ftRJ0X2w3t1D7T4a-616-phGqQ2xKCn8894r0fdV9jKMhVYKH8N1dXMvtsZdK6e4t9F4Hg66wCzpXvuD_jcRu9_-i65_Kbr-HeW8Bw/gcxlheshfpbyigg/wedus10lite.gz";;
+  7) PILIHOS="https://umbel.my.id/wedus10lite.gz";;
+  8) PILIHOS="https://windows-on-cloud.wansaw.com/0:/win11";;
+  9) PILIHOS="https://windows-on-cloud.wansaw.com/0:/win10_en.gz";;
+  10) read -p "Enter Direct Link: " PILIHOS;;
+  *) log_error "Invalid selection"; exit 1;;
 esac
 
 # --- 4. NETWORK DETECTION ---
@@ -66,35 +66,35 @@ GW=$(ip route | awk '/default/ { print $3 }' | head -n1)
 
 # Gateway Failsafe
 if [ -z "$GW" ] || [[ "$GW" == "0.0.0.0" ]]; then
-    log_error "No gateway detected via route."
-    IP_BASE=$(echo "$CLEAN_IP" | cut -d. -f1-3)
-    GW="${IP_BASE}.1"
-    log_success "Calculated Gateway: $GW"
+    log_error "No gateway detected via route."
+    IP_BASE=$(echo "$CLEAN_IP" | cut -d. -f1-3)
+    GW="${IP_BASE}.1"
+    log_success "Calculated Gateway: $GW"
 fi
 
 # Netmask Calculation
 case "$CLEAN_PREFIX" in
-    8) SUBNET_MASK="255.0.0.0";;
-    16) SUBNET_MASK="255.255.0.0";;
-    20) SUBNET_MASK="255.255.240.0";;
-    22) SUBNET_MASK="255.255.252.0";;
-    24) SUBNET_MASK="255.255.255.0";;
-    25) SUBNET_MASK="255.255.255.128";;
-    26) SUBNET_MASK="255.255.255.192";;
-    27) SUBNET_MASK="255.255.255.224";;
-    28) SUBNET_MASK="255.255.255.240";;
-    *) SUBNET_MASK="255.255.255.0";; # Default fallback
+    8) SUBNET_MASK="255.0.0.0";;
+    16) SUBNET_MASK="255.255.0.0";;
+    20) SUBNET_MASK="255.255.240.0";;
+    22) SUBNET_MASK="255.255.252.0";;
+    24) SUBNET_MASK="255.255.255.0";;
+    25) SUBNET_MASK="255.255.255.128";;
+    26) SUBNET_MASK="255.255.255.192";;
+    27) SUBNET_MASK="255.255.255.224";;
+    28) SUBNET_MASK="255.255.255.240";;
+    *) SUBNET_MASK="255.255.255.0";; # Default fallback
 esac
 
-echo "   ---------------------------"
-echo "   IP             : $CLEAN_IP"
-echo "   Subnet Mask    : $SUBNET_MASK"
-echo "   Gateway        : $GW"
-echo "   ---------------------------"
+echo "   ---------------------------"
+echo "   IP             : $CLEAN_IP"
+echo "   Subnet Mask    : $SUBNET_MASK"
+echo "   Gateway        : $GW"
+echo "   ---------------------------"
 
 if [[ "$CLEAN_IP" == *"/"* ]] || [ -z "$CLEAN_IP" ]; then
-    log_error "IP Detection Failed. Exiting to prevent bricking."
-    exit 1
+    log_error "IP Detection Failed. Exiting to prevent bricking."
+    exit 1
 fi
 
 read -p "Look correct? [Y/n]: " CONFIRM
@@ -108,7 +108,7 @@ cat > /tmp/win_setup.bat << 'EOFBATCH'
 SETLOCAL EnableDelayedExpansion
 
 REM ============================================
-REM    WINDOWS SETUP - VERBOSE LOGGING
+REM    WINDOWS SETUP - VERBOSE LOGGING
 REM ============================================
 
 SET IP=PLACEHOLDER_IP
@@ -118,18 +118,18 @@ SET GW=PLACEHOLDER_GW
 REM --- CHECK ADMIN RIGHTS ---
 net session >nul 2>&1
 if %errorLevel% NEQ 0 (
-    ECHO [LOG] Requesting Admin privileges...
-    powershell -Command "Start-Process '%~f0' -Verb RunAs"
-    exit /b
+    ECHO [LOG] Requesting Admin privileges...
+    powershell -Command "Start-Process '%~f0' -Verb RunAs"
+    exit /b
 )
 
 ECHO.
 ECHO ===========================================
-ECHO      STARTING NETWORK CONFIGURATION
+ECHO      STARTING NETWORK CONFIGURATION
 ECHO ===========================================
-ECHO [DEBUG] IP Target  : %IP%
+ECHO [DEBUG] IP Target  : %IP%
 ECHO [DEBUG] Mask Target: %MASK%
-ECHO [DEBUG] Gateway    : %GW%
+ECHO [DEBUG] Gateway    : %GW%
 ECHO.
 
 ECHO [LOG] Waiting 15 seconds for drivers to load...
@@ -143,31 +143,31 @@ SET ADAPTER_NAME=
 REM CHECK 1: Look specifically for "Ethernet Instance 0" (The one that works)
 netsh interface show interface name="Ethernet Instance 0" >nul 2>&1
 if %errorlevel% EQU 0 (
-    SET "ADAPTER_NAME=Ethernet Instance 0"
-    ECHO [SUCCESS] Found Priority Adapter: Ethernet Instance 0
-    goto :configure_network
+    SET "ADAPTER_NAME=Ethernet Instance 0"
+    ECHO [SUCCESS] Found Priority Adapter: Ethernet Instance 0
+    goto :configure_network
 )
 
 REM CHECK 2: Look specifically for just "Ethernet"
 netsh interface show interface name="Ethernet" >nul 2>&1
 if %errorlevel% EQU 0 (
-    SET "ADAPTER_NAME=Ethernet"
-    ECHO [SUCCESS] Found Standard Adapter: Ethernet
-    goto :configure_network
+    SET "ADAPTER_NAME=Ethernet"
+    ECHO [SUCCESS] Found Standard Adapter: Ethernet
+    goto :configure_network
 )
 
 REM CHECK 3: Fallback Loop (Take the FIRST connected one and STOP)
 ECHO [DEBUG] Specific names not found. Scanning list...
 for /f "tokens=3*" %%a in ('netsh interface show interface ^| findstr /C:"Connected"') do (
-    SET "ADAPTER_NAME=%%b"
-    ECHO [DEBUG] Discovered Adapter: !ADAPTER_NAME!
-    goto :configure_network
+    SET "ADAPTER_NAME=%%b"
+    ECHO [DEBUG] Discovered Adapter: !ADAPTER_NAME!
+    goto :configure_network
 )
 
 :configure_network
 if "%ADAPTER_NAME%"=="" (
-    ECHO [CRITICAL ERROR] No network adapter found!
-    goto :keep_open
+    ECHO [CRITICAL ERROR] No network adapter found!
+    goto :keep_open
 )
 
 ECHO [LOG] Selected Adapter: "%ADAPTER_NAME%"
@@ -177,10 +177,10 @@ ECHO.
 ECHO [LOG] Applying IP Address...
 netsh interface ip set address name="%ADAPTER_NAME%" source=static addr=%IP% mask=%MASK% gateway=%GW% gwmetric=1
 if %errorlevel% EQU 0 (
-    ECHO [SUCCESS] IP Applied.
+    ECHO [SUCCESS] IP Applied.
 ) else (
-    ECHO [ERROR] Failed to set IP. Retrying with PowerShell...
-    powershell -Command "New-NetIPAddress -InterfaceAlias '%ADAPTER_NAME%' -IPAddress %IP% -PrefixLength 24 -DefaultGateway %GW%"
+    ECHO [ERROR] Failed to set IP. Retrying with PowerShell...
+    powershell -Command "New-NetIPAddress -InterfaceAlias '%ADAPTER_NAME%' -IPAddress %IP% -PrefixLength 24 -DefaultGateway %GW%"
 )
 
 timeout /t 2 /nobreak >nul
@@ -202,9 +202,9 @@ ECHO.
 ECHO [LOG] Testing Connection to Google...
 ping -n 2 8.8.8.8
 if %errorlevel% EQU 0 (
-    ECHO [SUCCESS] Internet Connected!
+    ECHO [SUCCESS] Internet Connected!
 ) else (
-    ECHO [WARNING] Ping failed. RDP might still work if IP is set.
+    ECHO [WARNING] Ping failed. RDP might still work if IP is set.
 )
 
 REM --- DISK EXTENSION ---
@@ -233,28 +233,34 @@ ECHO [SUCCESS] RDP Enabled on Port 3389.
 REM --- INSTALL CHROME ---
 ECHO.
 if exist "C:\chrome.msi" (
-    ECHO [LOG] Installing Google Chrome...
-    start /wait msiexec /i "C:\chrome.msi" /quiet /norestart
-    del /f /q C:\chrome.msi
-    ECHO [SUCCESS] Chrome Installed.
+    ECHO [LOG] Installing Google Chrome...
+    start /wait msiexec /i "C:\chrome.msi" /quiet /norestart
+    del /f /q C:\chrome.msi
+    ECHO [SUCCESS] Chrome Installed.
 ) else (
-    ECHO [INFO] Chrome installer not found, skipping.
+    ECHO [INFO] Chrome installer not found, skipping.
 )
 
 ECHO.
 ECHO ===========================================
-ECHO      SETUP COMPLETE
+ECHO      SETUP COMPLETE
 ECHO ===========================================
 ECHO IP Address: %IP%
-ECHO Username  : Administrator
+ECHO Username  : Administrator
 ECHO.
 
 :keep_open
-ECHO [LOG] Setup selesai. Menutup jendela dalam 5 detik...
+ECHO.
+ECHO ===========================================
+ECHO      SETUP SELESAI - AUTO CLOSE IN 5s
+ECHO ===========================================
+ECHO [LOG] Menghapus file setup dan keluar...
+
+REM Memberi jeda 5 detik agar pesan terlihat, lalu tutup otomatis
 timeout /t 5 /nobreak >nul
-REM Menghapus file script ini sendiri sebelum keluar
-start /b "" cmd /c del "%~f0" & exit
-exit
+
+REM Menghapus file ini sendiri dan menutup jendela CMD
+(goto) 2>nul & del "%~f0" & exit
 EOFBATCH
 
 # Inject Bash Variables into Batch File
@@ -268,9 +274,9 @@ log_success "Batch script created with debug logs."
 log_step "STEP 6: Writing OS to Disk"
 umount -f /dev/vda* 2>/dev/null
 if echo "$PILIHOS" | grep -qiE '\.gz($|\?)'; then
-  wget --no-check-certificate -O- "$PILIHOS" | gunzip | dd of=/dev/vda bs=4M status=progress
+  wget --no-check-certificate -O- "$PILIHOS" | gunzip | dd of=/dev/vda bs=4M status=progress
 else
-  wget --no-check-certificate -O- "$PILIHOS" | dd of=/dev/vda bs=4M status=progress
+  wget --no-check-certificate -O- "$PILIHOS" | dd of=/dev/vda bs=4M status=progress
 fi
 sync
 sleep 3
@@ -282,11 +288,11 @@ sleep 5
 
 TARGET=""
 for i in {1..10}; do
-    if [ -b /dev/vda2 ]; then TARGET="/dev/vda2"; break; fi
-    if [ -b /dev/vda1 ]; then TARGET="/dev/vda1"; break; fi
-    echo "   Searching for partition... ($i/10)"
-    sleep 2
-    partprobe /dev/vda
+    if [ -b /dev/vda2 ]; then TARGET="/dev/vda2"; break; fi
+    if [ -b /dev/vda1 ]; then TARGET="/dev/vda1"; break; fi
+    echo "   Searching for partition... ($i/10)"
+    sleep 2
+    partprobe /dev/vda
 done
 [ -z "$TARGET" ] && { log_error "Partition not found."; exit 1; }
 
@@ -298,49 +304,15 @@ mount.ntfs-3g -o remove_hiberfile,rw "$TARGET" /mnt/windows || mount.ntfs-3g -o 
 
 # --- 8. INJECT FILES ---
 log_step "STEP 8: Injecting Setup Files"
-
-# Tentukan Path Folder
 PATH_ALL_USERS="/mnt/windows/ProgramData/Microsoft/Windows/Start Menu/Programs/Startup"
 PATH_ADMIN="/mnt/windows/Users/Administrator/AppData/Roaming/Microsoft/Windows/Start Menu/Programs/Startup"
-PATH_DESKTOP="/mnt/windows/Users/Administrator/Desktop"
+mkdir -p "$PATH_ALL_USERS" "$PATH_ADMIN"
 
-# Buat folder jika belum ada
-mkdir -p "$PATH_ALL_USERS" "$PATH_ADMIN" "$PATH_DESKTOP"
-
-# 1. Buat file bat Ganti Password secara otomatis
-cat > /tmp/GantiPass.bat << 'EOF'
-@echo off
-net session >nul 2>&1
-if %errorLevel% neq 0 (
-    echo [!] ERROR: Klik kanan lalu 'Run as Administrator'
-    pause
-    exit
-)
-echo ========================================
-echo       GANTI PASSWORD ADMINISTRATOR
-echo ========================================
-set /p "np=Masukkan Password Baru: "
-net user Administrator %np%
-echo.
-if %errorlevel% equ 0 (
-    echo [OK] Password berhasil diganti!
-    timeout /t 3
-) else (
-    echo [Gagal] Pastikan password memenuhi kriteria.
-    pause
-)
-exit
-EOF
-
-# 2. Copy file-file ke dalam sistem Windows
 cp -v /tmp/chrome.msi /mnt/windows/chrome.msi
 cp -f /tmp/win_setup.bat "$PATH_ALL_USERS/win_setup.bat"
 cp -f /tmp/win_setup.bat "$PATH_ADMIN/win_setup.bat"
 
-# 3. Masukkan file Ganti Password ke Desktop agar mudah ditemukan user
-cp -f /tmp/GantiPass.bat "$PATH_DESKTOP/GantiPassword.bat"
-
-log_success "Files injected (Setup script & Password Changer on Desktop)"
+log_success "Files injected"
 
 # --- 9. FINISH ---
 log_step "STEP 9: Cleaning Up"
@@ -348,7 +320,7 @@ sync
 umount /mnt/windows
 
 echo "===================================================="
-echo "       INSTALLATION SUCCESSFUL!                     "
+echo "       INSTALLATION SUCCESSFUL!                     "
 echo "===================================================="
 echo " 1. Droplet is powering off NOW"
 echo " 2. Turn OFF Recovery Mode in DigitalOcean Panel"
